@@ -1,0 +1,31 @@
+---
+title: "Weeks 5-6 Assignments"
+output: html_notebook
+---
+
+```{r}
+## Set directory and load file to data frame
+library('ggplot2')
+library('tidyverse')
+library('readxl')
+library('plotly')
+library('treemapify')
+theme_set(theme_minimal())
+setwd("C:/Users/Supraja/Desktop/Supraja WORK Apps/8. DSC640/Data")
+
+## Load data to data frame
+df <- read_csv("crimerates-by-state-2005.csv")
+df
+```
+
+```{r}
+# Create line chart of population by year with titles and labels
+ggplot(data=df, aes(x=murder, y=population)) + geom_point() + ggtitle('Murder Rate vs Population') + xlab('Murder Rate') + ylab('Population')
+```
+```{r}
+# Create line chart of population by year with titles and labels
+ggplot(data=crime_df, aes(x=murder, y=population, size=larceny_theft)) + geom_point() + ggtitle('Murder Rate and Larceny vs Population') + xlab('Murder Rate') + ylab('Population')
+```
+```{r}
+ggplot(data=crime_df, aes(x=murder)) + geom_density() + ggtitle('Distribution of Murder Rates') + xlab('Murder Rate') + ylab('Density')
+```
